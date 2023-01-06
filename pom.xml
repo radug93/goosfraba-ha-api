@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ro.goosfraba.api</groupId>
-	<artifactId>product</artifactId>
+	<artifactId>parking</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>product</name>
+	<name>parking</name>
 	<description>Home Assignment For Goosfraba</description>
 	<properties>
 		<java.version>11</java.version>

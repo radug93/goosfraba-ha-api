@@ -1,13 +1,13 @@
-package ro.goosfraba.api.product;
+package ro.goosfraba.api.parking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductApplication {
+public class ParkingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductApplication.class, args);
+		SpringApplication.run(ParkingApplication.class, args);
 	}
 
 }
