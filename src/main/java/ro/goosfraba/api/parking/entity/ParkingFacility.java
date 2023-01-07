@@ -1,16 +1,14 @@
 package ro.goosfraba.api.parking.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Data
-@Builder
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class ParkingFacility {
 
@@ -22,12 +20,14 @@ public class ParkingFacility {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="city_id", nullable=false)
+    @JoinColumn(name="cityId", nullable=false)
     private City city;
 
     private Integer capacity;
 
     private Integer availableCapacity;
 
+    @OneToMany(mappedBy="parkingFacility")
+    private List<Vehicle> Vehicle;
 
 }

@@ -1,30 +1,28 @@
 package ro.goosfraba.api.parking.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
-@Builder
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Vehicle {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="cityId", nullable=false)
     private City city;
 
-    private Boolean isParked;
+    private Boolean parked;
 
+    private String name;
 
     @ManyToOne
     @JoinColumn(name="parkingFacilityId", nullable=false)
