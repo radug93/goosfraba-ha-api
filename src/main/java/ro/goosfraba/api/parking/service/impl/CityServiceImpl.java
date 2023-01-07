@@ -1,7 +1,9 @@
 package ro.goosfraba.api.parking.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import ro.goosfraba.api.parking.dto.CityDTO;
 import ro.goosfraba.api.parking.mapping.CityEntityDTOMapper;
 import ro.goosfraba.api.parking.repository.CityRepository;
@@ -30,11 +32,11 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public CityDTO findById(Long id) {
-        return mapper.destinationToSource(cityRepository.findById(id).get());
+        return mapper.destinationToSource(cityRepository.findById(id).orElseThrow(() ->  new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find the city")));
     }
 
     @Override
     public CityDTO findByCode(String code) {
-        return mapper.destinationToSource(cityRepository.findCityByCode(code));
+        return mapper.destinationToSource(cityRepository.findCityByCode(code).orElseThrow(() ->  new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find the city")));
     }
 }

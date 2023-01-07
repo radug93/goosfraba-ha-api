@@ -13,6 +13,7 @@ import java.util.List;
 public interface ParkingFacilityEntityDTOMapper {
     @Mapping(source="cityId", target="city.id")
     ParkingFacility sourceToDestination(ParkingFacilityDTO source);
+    @Mapping(target="cityId", source="city.id")
     ParkingFacilityDTO destinationToSource(ParkingFacility destination);
     List<ParkingFacilityDTO> map(List<ParkingFacility> products);
 
